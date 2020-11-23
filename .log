@@ -1,0 +1,21 @@
+mkdir 01-mixed-greetings
+cd 01-mixed-greetings
+
+touch index.html
+touch styles.css
+touch app.js
+
+npm install http-server --save-dev
+npm install concurrently --save-dev
+
+    package.json
+
+    scripts
+
+    "start": "npm run open",
+    "open": "concurrently \"http-server -o index.html\""
+
+git init
+git add .
+git commit -m "crea la estructura del proyecto"
+

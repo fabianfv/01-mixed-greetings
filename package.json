@@ -4,7 +4,8 @@
   "description": "Basics of html5, css3, javascript (es5/6)",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run open",
+    "open": "concurrently \"http-server -o index.html\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/fabianfv/01-mixed-greetings/issues"
   },
-  "homepage": "https://github.com/fabianfv/01-mixed-greetings#readme"
+  "homepage": "https://github.com/fabianfv/01-mixed-greetings#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "http-server": "^0.12.3"
+  }
 }
