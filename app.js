@@ -11,6 +11,7 @@
 
 const btnRandomMixedGreeting = document.getElementById("btnRandomMixedGreeting")
 const btnRandomGreeting = document.getElementById("btnRandomGreeting")
+const btnRandomAsciiArt = document.getElementById("btnRandomAsciiArt")
 const btnClear = document.getElementById("btnClear")
 const txtMessages = document.getElementById("txtMessages")
 
@@ -18,6 +19,8 @@ function init() {
   btnRandomMixedGreeting.addEventListener("click", showRandomMixedMessage)
 
   btnRandomGreeting.addEventListener("click", showRandomMessage)
+
+  btnRandomAsciiArt.addEventListener("click", showRandomAsciiArt)
 
   btnClear.addEventListener("click", clear)
 }
@@ -57,10 +60,10 @@ const msgPart3 = ["¡Tanto tiempo!", "So long!", "So lange!", "Tant de temps!"]
 const maxMsgParts = msgPart1.length
 let lastRandIndexes = []
 
-const rdnIndex = () => Math.floor(Math.random() * maxMsgParts)
+const rdnIndex = (max) => Math.floor(Math.random() * max)
 
 function buildRandomMixedMessage() {
-  return `${msgPart1[rdnIndex()]} ${msgPart2[rdnIndex()]} ${msgPart3[rdnIndex()]}\n`
+  return `${msgPart1[rdnIndex(maxMsgParts)]} ${msgPart2[rdnIndex(maxMsgParts)]} ${msgPart3[rdnIndex(maxMsgParts)]}\n`
 }
 
 function showRandomMixedMessage() {
@@ -71,7 +74,7 @@ function buildRandomMessage() {
   let index
 
   do {
-    index = rdnIndex()
+    index = rdnIndex(maxMsgParts)
 
     if (lastRandIndexes.length === maxMsgParts) {
       lastRandIndexes = []
@@ -90,6 +93,68 @@ function buildRandomMessage() {
 function showRandomMessage() {
   txtMessages.textContent += buildRandomMessage()
 }
+
+let usedIndexes = []
+
+function showRandomAsciiArt() {
+  const fig1 = `
+   __
+  \\  \\      _ 
+   \\**\\ ____\\ \\
+  X*#####*___\\_\\
+   o/\\**\\
+      \\__\\
+  `
+
+  const fig2 = `
+ ---------------+---------------
+          ___ /^^[___              _
+         /|^+----+   |#___________//
+       ( -+ |____|   _______-----+/
+        ==_________--'            
+          ~_|___|__ -wh 
+  `
+
+  const fig3 = `
+                                      (@@@)     (@@@@@)
+                               (@@)     (@@@@@@@)        (@@@@@@@)
+                         (@@@@@@@)   (@@@@@)       (@@@@@@@@@@@)
+                    (@@@)     (@@@@@@@)   (@@@@@@)             (@@@)
+               (@@@@@@)    (@@@@@@)                (@)
+           (@@@)  (@@@@)           (@@)
+        (@@)              (@@@)
+       .-.               
+       ] [    .-.      _    .-----.
+     ."   """"   """""" """"| .--
+    (:--:--:--:--:--:--:--:-| [___    .------------------------.
+     |C&O  :  :  :  :  :  : [_9_] |'='|.----------------------.|
+    /|.___________________________|___|'--.___.--.___.--.___.-'| 
+   / ||_.--.______.--.______.--._ |---\\'--\\-.-/==\\-.-/==\\-.-/-'/--
+  /__;^=(==)======(==)======(==)=^~^^^ ^^^^(-)^^^^(-)^^^^(-)^^^ jgs
+~~~^~~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~^~~~
+  `
+  const asciiFigures = [fig1, fig2, fig3]
+
+  let index
+
+  do {
+    index = rdnIndex(3)
+
+    if (usedIndexes.length === 3) {
+      usedIndexes = []
+      continue
+    }
+
+    if (usedIndexes.includes(index)) continue
+
+    usedIndexes.push(index)
+    break
+  } while (true)
+
+
+  txtMessages.textContent += asciiFigures[index]
+}
+
 
 function clear() {
   txtMessages.textContent = ""
