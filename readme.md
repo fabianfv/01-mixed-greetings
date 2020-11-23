@@ -4,7 +4,9 @@
 * [Setup](#setup)
 
 ## General info
-This project show some basics of web development
+This project show some basics of web development.
+
+You can see it online in its [github page](https://fabianfv.github.io/01-mixed-greetings/)
 	
 ## Technologies
 This project was created with:
