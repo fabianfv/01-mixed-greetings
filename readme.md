@@ -11,8 +11,8 @@ You can see it online in its [github page](https://fabianfv.github.io/01-mixed-g
 ## Technologies
 This project was created with:
 * HTML5
-* CSS3
-* Javascript ES5/6
+* CSS3 (flexbox)
+* Javascript ES6
 	
 ## Setup
 To run this project:

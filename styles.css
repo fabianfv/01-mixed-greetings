@@ -1,0 +1,66 @@
+:root {
+--primary-bgcolor: #ff9500d3;
+--primary-color: #f7f7f7;
+}
+
+html {
+  font-size: 12px;
+}
+
+  body {
+    height: 100vh;
+    background-color: #333333;
+  }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      height: 100%;
+    }
+
+    #container > h1 {
+      color: #d2d5d8;
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+
+    #txtMessages {
+      flex-basis: 100%;
+      background-color: #044957;
+      color: #f7f7f7;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    #buttons {
+      display: flex;
+      margin: 2% 0;
+    }
+
+      button {
+        background-color: #ff9500d3;
+        color: var(--primary-color);
+        padding: 1%;
+        border: 0;
+        border-radius: 5px;
+        flex: 1 1 0;
+        margin: 0 1%;
+        font-size: 1rem;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    font-size: 16px;
+  }
+}
